@@ -12,6 +12,7 @@ public class TCPServerThread {
     public static void main(String[] args) throws IOException {
         //创建一个服务器ServerSocket,和系统要指定的端口号
         ServerSocket server = new ServerSocket(8080);
+        System.out.println("监听8080端口");
         /*
             浏览器解析服务器回写的html页面,页面中如果有图片,那么浏览器就会单独的开启一个线程,读取服务器的图片
             我们就的让服务器一直处于监听状态,客户端请求一次,服务器就回写一次

@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HBUACM - 河北大学程序设计训练营</title><meta name="description" content="2020河北大学程序设计训练营"><meta name="author" content="HBU"><meta name="copyright" content="HBU"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://hbuacm.github.io/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="HBUACM"><meta property="og:url" content="http://hbuacm.github.io/"><meta property="og:site_name" content="HBUACM"><meta property="og:description" content="2020河北大学程序设计训练营"><meta property="og:image" content="http://hbuacm.github.io/img/avatar.png"><meta property="article:published_time" content="2020-11-22T03:19:19.010Z"><meta property="article:modified_time" content="2020-11-22T03:19:19.010Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"C++,二叉树,String,图,堆,栈,队列,头秃,AC,WA","fontSize":"15px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">34</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">30</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">9</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">HBUACM</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">HBUACM</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/hbuacm" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1076998404@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.nowcoder.com/study/live/425" target="_blank" title="nowcode"><i class="fab fa-youtube-play"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/22/day20/" title="day20 单链表的创建及遍历">     <img class="post_bg" data-src="/images/week2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="day20 单链表的创建及遍历"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/22/day20/" title="day20 单链表的创建及遍历">day20 单链表的创建及遍历</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-11-22 03:18:48"><i class="far fa-calendar-alt"></i>2020-11-22</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC2%E5%91%A8-%E6%95%B0%E5%AD%A6%E6%A8%A1%E6%8B%9F/">第2周 数学模拟</a></span></div><div class="content">单链表的创建及遍历读入n值及n个整数，建立单链表并遍历输出。
+输入格式:读入n及n个整数。
+输出格式:输出n个整数，以空格分隔（最后一个数的后面没有空格）。
+输入样例:在这里给出一组输入。例如：
+
+210 5
+
+输出样例:在这里给出相应的输出。例如：
+
+10 5
+
+注意:
+整个题没难度，最基本的单链表建立。注意申请内存空间的malloc函数的使用struct NList* newNode = (struct NList*)malloc(sizeof( struct NList ));
+
+代码123456789101112131415161718192021222324252627282930313233343536373839404142#include &lt;iostream&gt;#include &lt;malloc.h&gt;using namespace std;struct NList&#123;	int num;//数据域	struct NList* Next;//指针域&#125;;int main()&#123;	int n , x;	cin &gt;&gt; n; ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/20/PAT%E4%B9%99%E7%BA%A7%E9%A2%98%E7%9B%AE/" title="PAT乙级题目分享-19计科王伯成">     <img class="post_bg" data-src="/images/PAT%E4%B9%99%E7%BA%A7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PAT乙级题目分享-19计科王伯成"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/20/PAT%E4%B9%99%E7%BA%A7%E9%A2%98%E7%9B%AE/" title="PAT乙级题目分享-19计科王伯成">PAT乙级题目分享-19计科王伯成</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-11-20 20:44:40"><i class="far fa-calendar-alt"></i>2020-11-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></span></div><div class="content">
+author: 19计科王伯成
+date: 2020-11-22 10:44:400、说一些话
+
+开始时间：2020. 4. 9
+完成时间：2020. 4. 27
+PAT乙级题目集
+总的来说，乙级题目刚开始做可能会感觉困难，不太好适应这种编程风格，慢慢的就习惯了，做题的思路也来得越来越快，好多题都是思路很简单但代码十分繁琐。学会C++的基础语法，不需要面向对象的部分，在学会STL几种容器的使用方法和它们的操作函数，刷乙级题的知识储备就足够了。(部分题涉及到了排序算法，但题中有解释)
+Java做题也可以，也有许多便利的函数(方法)，但Java效率太低，超时是一大问题
+1001 害死人不偿命的(3n+1)猜想123456789101112131415161718#include &lt;iostream&gt;using namespace std;int main() &#123;    int step=0;    int n;    cin &gt;&gt; n;    for(;n!=1;step++)&#123;        if(n%2==0)&#123;          ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E6%9B%B9%E6%99%A8/" title="天梯赛经验分享-曹晨">     <img class="post_bg" data-src="/images/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="天梯赛经验分享-曹晨"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E6%9B%B9%E6%99%A8/" title="天梯赛经验分享-曹晨">天梯赛经验分享-曹晨</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-11-20 20:44:40"><i class="far fa-calendar-alt"></i>2020-11-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></span></div><div class="content">天梯赛经验分享-曹晨
+author: 曹晨
+date: 2020-11-21 20:44:40
+
+无序列表（加号和嵌套）Unordered Lists (+)
+String类型操作
+insert
+erase()
+substr()
+compare()
+find()
+replace()
+
+
+基本算法
+dfs和bfs
+并查集
+单/多源最短路问题
+最小生成树
+二叉树的遍历
+拓扑图
+优先队列
+最近公共祖先
+01背包
+kmp思维能力和编写代码能力
+
+
+
+
+思维能力主要考察对算法的理解，但是实际代码比较的短小。比如01背包，并查集，优先队列等，这一部分主要需要大家对算法有比较深入的理解，比如01背包等需要你搞懂内部的原理
+代码的编写能力则需要大量的训练，思维可能比较的简单但是代码量比较的多，应该从平时尽量的养成规范的编写代码习惯，背会各种代码模板：DFS。琐碎的知识点
+char *,string,const char *之间的转化
+字符串和数字之间的转化
+stringstream的使用
+getline(cin,x) getchar()等等对缓冲区最后一个回车的影响
+分割字符串strtok函数
+C++ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E5%B0%9A%E6%A2%A6%E5%B7%9D/" title="天梯赛经验分享-尚梦川">     <img class="post_bg" data-src="/images/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="天梯赛经验分享-尚梦川"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E5%B0%9A%E6%A2%A6%E5%B7%9D/" title="天梯赛经验分享-尚梦川">天梯赛经验分享-尚梦川</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-11-20 20:44:40"><i class="far fa-calendar-alt"></i>2020-11-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></span></div><div class="content">天梯赛经验分享-尚梦川
+author: 尚梦川
+date: 2020-11-21 20:44:40
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/20/C++%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB/" title="C++ 使用分享">     <img class="post_bg" data-src="/images/C++%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ 使用分享"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/20/C++%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB/" title="C++ 使用分享">C++ 使用分享</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-11-20 20:44:40"><i class="far fa-calendar-alt"></i>2020-11-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></span></div><div class="content">C++ 使用分享
+author: 樊萌萌
+date: 2020-11-20 20:44:40一、常用集合
+
+1.vector也称为单端数组，不同之处在于数组是静态空间，而vector可以动态扩展12345678910111.push_back(ele);	向尾部插入值2.pop_back();	删除最后一个元素3.insert(,)	迭代器指向pos位置破损插入元素ele，例如	v1.insert(v1.begin(),100);头部（最前边）插入100，第一个参数是迭代器4.insert(,,)	迭代器指向位置pos插入count个元素elev例如						v1.insert(v1.begin(),2,100);在开头插入2个1005.erase(..)	删除迭代器指向的元素6.erase(strat,end)	删除迭代器从start到end之间的元素(左闭右开)7.clear()	删除容器中的所有元素//获取一些特殊位置的值获取第一个元素：v1.front();	最后一个：v1.back();
+
+相当于二维数组用法，容器嵌套1234567891011121314151617181 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E6%9D%8E%E6%8C%AF%E6%B5%A9/" title="天梯赛经验分享-李振浩">     <img class="post_bg" data-src="/images/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="天梯赛经验分享-李振浩"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E6%9D%8E%E6%8C%AF%E6%B5%A9/" title="天梯赛经验分享-李振浩">天梯赛经验分享-李振浩</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-11-20 20:44:40"><i class="far fa-calendar-alt"></i>2020-11-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></span></div><div class="content">天梯赛经验分享-李振浩
+author: 李振浩
+date: 2020-11-21 20:44:40注意事项
+
+
+不要读题，直接看数据，找思路。
+
+先特殊 在一般
+
+事先配置好环境
+
+dev / codeblocks 主题
+freopen(“1.txt”, ‘r’, stdin)
+不要使用&lt;bits/stdc++.h&gt; 变异很慢
+
+
+尽量不要使用cin, cout … 用scanf printf
+
+
+做题经验
+pair&lt;T,T&gt;自带排序
+
+dis数组 特殊判断
+
+链表存储 h[N], tot, struct Edge{int to,nxt,w,….}
+ 综合 ：https://pintia.cn/problem-sets/994805046380707840/problems/994805051153825792
+
+不要使用map 包括unordered_map 复杂度很玄学 
+csp 认证：http://118.190.20.162/view.page?gpid=T104
+
+树形化处理dfs 找出口 
+
++1 -1 注意细节
+​    https://pinti ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/26/day41/" title="day41 7-6 城市间紧急救援">     <img class="post_bg" data-src="/images/week4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="day41 7-6 城市间紧急救援"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/26/day41/" title="day41 7-6 城市间紧急救援">day41 7-6 城市间紧急救援</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-26 15:20:40"><i class="far fa-calendar-alt"></i>2020-08-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC5%E5%91%A8-%E5%9B%BE/">第5周 图</a></span></div><div class="content">markdown 文章内容作为一个城市的应急救援队伍的负责人，你有一张特殊的全国地图。在地图上显示有多个分散的城市和一些连接城市的快速道路。每个城市的救援队数量和每一条连接两个城市的快速道路长度都标在地图上。当其他城市有紧急求助电话给你的时候，你的任务是带领你的救援队尽快赶往事发地，同时，一路上召集尽可能多的救援队。
+输入格式:
+
+输入第一行给出4个正整数N、M、S、D，其中N（2≤N≤500）是城市的个数，顺便假设城市的编号为0 ~ (N−1)；M是快速道路的条数；S是出发地的城市编号；D是目的地的城市编号。第二行给出N个正整数，其中第i个数是第i个城市的救援队的数目，数字间以空格分隔。随后的M行中，每行给出一条快速道路的信息，分别是：城市1、城市2、快速道路的长度，中间用空格分开，数字均为整数且不超过500。输入保证救援可行且最优解唯一。
+
+输出格式:
+
+第一行输出最短路径的条数和能够召集的最多的救援队数量。第二行输出从S到D的路径中经过的城市编号。数字间以空格分隔，输出结尾不能有多余空格。
+
+输入样例:
+
+4 5 0 320 30 40 100 1 11 3 20 3 30 2  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/19/day31/" title="day31 还原二叉树">     <img class="post_bg" data-src="/images/week4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="day31 还原二叉树"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/19/day31/" title="day31 还原二叉树">day31 还原二叉树</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-19 22:30:20"><i class="far fa-calendar-alt"></i>2020-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC4%E5%91%A8-%E6%A0%91/">第4周 树</a></span></div><div class="content">河北大学程序设计训练营
+
+题目要求：给定一棵二叉树的先序遍历序列和中序遍历序列，要求计算该二叉树的高度。
+输入格式:输入首先给出正整数N（≤50），为树中结点总数。下面两行先后给出先序和中序遍历序列，均是长度为N的不包含重复英文字母（区别大小写）的字符串。
+输出格式:输出为一个整数，即该二叉树的高度。
+输入样例:
+9ABDFGHIECFDHGIBEAC
+
+输出样例:
+5
+
+先看怎么恢复二叉树：先序遍历第一个字母即为树的根，其他字母可视为子树的根。中序遍历中字母的位置为相对位置，比如，BAC ，就是
+恢复就是在先序遍历中找子树的根，然后在中序遍历里判断它的左右子树，以题目为例，这样就恢复完了。
+再来看怎么求二叉树高度：迭代分别求左右子树的高度，较高的就为树的高度。
+代码：
+1234567891011121314151617181920212223242526272829303132#include&lt;bits/stdc++.h&gt;using namespace std;string str1,str2;int Height(int t1,int t2,int lenth,int  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/19/day33/" title="day33 搜索树判断">     <img class="post_bg" data-src="/images/week4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="day33 搜索树判断"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/19/day33/" title="day33 搜索树判断">day33 搜索树判断</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-19 17:30:20"><i class="far fa-calendar-alt"></i>2020-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC4%E5%91%A8-%E6%A0%91/">第4周 树</a></span></div><div class="content">河北大学程序设计训练营
+
+对于二叉搜索树，我们规定任一结点的左子树仅包含严格小于该结点的键值，而其右子树包含大于或等于该结点的键值。如果我们交换每个节点的左子树和右子树，得到的树叫做镜像二叉搜索树。
+现在我们给出一个整数键值序列，请编写程序判断该序列是否为某棵二叉搜索树或某镜像二叉搜索树的前序遍历序列，如果是，则输出对应二叉树的后序遍历序列。
+输入格式:输入的第一行包含一个正整数N（≤1000），第二行包含N个整数，为给出的整数键值序列，数字间以空格分隔。
+输出格式:输出的第一行首先给出判断结果，如果输入的序列是某棵二叉搜索树或某镜像二叉搜索树的前序遍历序列，则输出YES，否侧输出NO。如果判断结果是YES，下一行输出对应二叉树的后序遍历序列。数字间以空格分隔，但行尾不能有多余的空格。
+输入样例1:
+78 6 5 7 10 8 11
+
+输出样例1:
+YES5 7 6 8 11 10 8
+
+输入样例2:
+78 6 8 5 10 9 11
+
+输出样例2:
+NO
+
+1234567891011121314151617181920212223242526272829303132333435363 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/19/Day34/" title="day34 五服">     <img class="post_bg" data-src="/images/week4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="day34 五服"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/19/Day34/" title="day34 五服">day34 五服</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-08-19 17:30:20"><i class="far fa-calendar-alt"></i>2020-08-19</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/">2020程序设计训练营</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC4%E5%91%A8-%E5%9B%BE/">第4周 图</a></span></div><div class="content">呵呵。大家都知道五服以内不得通婚，即两个人最近的共同祖先如果在五代以内（即本人、父母、祖父母、曾祖父母、高祖父母）则不可通婚。本题就请你帮助一对有情人判断一下，他们究竟是否可以成婚？
+输入格式：
+
+输入第一行给出一个正整数N（2 ≤ N ≤10​4​​ ），随后N行，每行按以下格式给出一个人的信息：本人ID 性别 父亲ID 母亲ID其中ID是5位数字，每人不同；性别M代表男性、F代表女性。如果某人的父亲或母亲已经不可考，则相应的ID位置上标记为-1。接下来给出一个正整数K，随后K行，每行给出一对有情人的ID，其间以空格分隔。
+
+
+注意：题目保证两个人是同辈，每人只有一个性别，并且血缘关系网中没有乱伦或隔辈成婚的情况。
+
+输出格式：对每一对有情人，判断他们的关系是否可以通婚：如果两人是同性，输出Never Mind；如果是异性并且关系出了五服，输出Yes；如果异性关系未出五服，输出No。
+输入样例：
+
+2400001 M 01111 -100002 F 02222 0333300003 M 02222 0333300004 F 04444 0333300005 M 04444 05555 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">HBU</div><div class="author-info__description">2020河北大学程序设计训练营</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">34</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">30</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">9</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hbuacm" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1076998404@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.nowcoder.com/study/live/425" target="_blank" title="nowcode"><i class="fab fa-youtube-play"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">河北大学程序设计训练营 </br>QQ群号码 1139184773 </br>PAT邀请码 1f86efe295074b83   </br>牛客网讲解视频地址 </br>nowcoder.com/study/live/425</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/11/22/day20/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/images/week2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="day20 单链表的创建及遍历" alt="day20 单链表的创建及遍历"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/11/22/day20/" title="day20 单链表的创建及遍历">day20 单链表的创建及遍历</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-22 03:18:48">2020-11-22</time></div></a></div><div class="aside-recent-post"><a href="/2020/11/20/PAT%E4%B9%99%E7%BA%A7%E9%A2%98%E7%9B%AE/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/images/PAT%E4%B9%99%E7%BA%A7.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="PAT乙级题目分享-19计科王伯成" alt="PAT乙级题目分享-19计科王伯成"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/11/20/PAT%E4%B9%99%E7%BA%A7%E9%A2%98%E7%9B%AE/" title="PAT乙级题目分享-19计科王伯成">PAT乙级题目分享-19计科王伯成</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-20 20:44:40">2020-11-20</time></div></a></div><div class="aside-recent-post"><a href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E6%9B%B9%E6%99%A8/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/images/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="天梯赛经验分享-曹晨" alt="天梯赛经验分享-曹晨"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E6%9B%B9%E6%99%A8/" title="天梯赛经验分享-曹晨">天梯赛经验分享-曹晨</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-20 20:44:40">2020-11-20</time></div></a></div><div class="aside-recent-post"><a href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E5%B0%9A%E6%A2%A6%E5%B7%9D/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/images/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="天梯赛经验分享-尚梦川" alt="天梯赛经验分享-尚梦川"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/11/20/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%88%86%E4%BA%AB%E5%B0%9A%E6%A2%A6%E5%B7%9D/" title="天梯赛经验分享-尚梦川">天梯赛经验分享-尚梦川</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-20 20:44:40">2020-11-20</time></div></a></div><div class="aside-recent-post"><a href="/2020/11/20/C++%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/images/C++%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="C++ 使用分享" alt="C++ 使用分享"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/11/20/C++%E4%BD%BF%E7%94%A8%E5%88%86%E4%BA%AB/" title="C++ 使用分享">C++ 使用分享</div><time class="aside-post_meta post-meta__date" title="发表于 2020-11-20 20:44:40">2020-11-20</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/"><span class="card-category-list-name">2020程序设计训练营</span><span class="card-category-list-count">34</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC0%E5%91%A8-c-stl/"><span class="card-category-list-name">第0周 c++ stl</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC1%E5%91%A8-%E5%88%9D%E7%BA%A7%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">第1周 初级算法</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC2%E5%91%A8-%E6%95%B0%E5%AD%A6%E6%A8%A1%E6%8B%9F/"><span class="card-category-list-name">第2周 数学模拟</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC3%E5%91%A8-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><span class="card-category-list-name">第3周 动态规划</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC4%E5%91%A8-%E5%9B%BE/"><span class="card-category-list-name">第4周 图</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC4%E5%91%A8-%E6%A0%91/"><span class="card-category-list-name">第4周 树</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2020%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC5%E5%91%A8-%E5%9B%BE/"><span class="card-category-list-name">第5周 图</span><span class="card-category-list-count">1</span></a></li></ul>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/A-B-%E9%A2%98%E8%A7%A3/" style="font-size: 16px; color: #999">A+B 题解</a> <a href="/tags/C/" style="font-size: 16px; color: #999">C++</a> <a href="/tags/C-sort/" style="font-size: 17.5px; color: #999da3">C++ sort</a> <a href="/tags/C-stack/" style="font-size: 16px; color: #999">C++ stack</a> <a href="/tags/C-struct/" style="font-size: 16px; color: #999">C++ struct</a> <a href="/tags/C-%E5%BC%95%E7%94%A8-%E4%B8%8E-%E4%BC%A0%E5%80%BC/" style="font-size: 16px; color: #999">C++ 引用& 与 传值</a> <a href="/tags/c-helloworld/" style="font-size: 19px; color: #99a1ac">c++ helloworld</a> <a href="/tags/c-map/" style="font-size: 17.5px; color: #999da3">c++ map</a> <a href="/tags/c-queue/" style="font-size: 16px; color: #999">c++ queue</a> <a href="/tags/c-set/" style="font-size: 17.5px; color: #999da3">c++ set</a> <a href="/tags/c-stack/" style="font-size: 16px; color: #999">c++ stack</a> <a href="/tags/c-stl/" style="font-size: 16px; color: #999">c++ stl</a> <a href="/tags/c-string/" style="font-size: 16px; color: #999">c++ string</a> <a href="/tags/c-vector/" style="font-size: 17.5px; color: #999da3">c++ vector</a> <a href="/tags/c-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" style="font-size: 16px; color: #999">c++ 基本语法</a> <a href="/tags/c-%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/" style="font-size: 16px; color: #999">c++本地编译环境安装</a> <a href="/tags/dijkstra-%E9%A2%98%E8%A7%A3/" style="font-size: 16px; color: #999">dijkstra 题解</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 16px; color: #999">二分查找</a> <a href="/tags/%E5%88%86%E6%95%B0%E8%BF%90%E7%AE%97/" style="font-size: 16px; color: #999">分数运算</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 22px; color: #99a9bf">动态规划</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%8E%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" style="font-size: 16px; color: #999">动态规划与斐波那契数列</a> <a href="/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/" style="font-size: 16px; color: #999">单链表</a> <a href="/tags/%E5%9B%BE/" style="font-size: 16px; color: #999">图</a> <a href="/tags/%E5%A4%A9%E6%A2%AF%E8%B5%9B/" style="font-size: 20.5px; color: #99a5b6">天梯赛</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 16px; color: #999">字符串</a> <a href="/tags/%E6%A0%91/" style="font-size: 17.5px; color: #999da3">树</a> <a href="/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/" style="font-size: 16px; color: #999">欧几里得算法</a> <a href="/tags/%E7%B4%A0%E6%95%B0/" style="font-size: 16px; color: #999">素数</a> <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" style="font-size: 16px; color: #999">贪心算法</a> <a href="/tags/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" style="font-size: 16px; color: #999">进制转换</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">15</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">34</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count">     </div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By HBU</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/third-party/ClickShowText.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
+  var subtitleEffect = true
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res) {
+      return res.json()
+    })
+    .then(function (data) {
+      if (subtitleEffect) {
+        var from = '出自 ' + data.from
+        var sub = "今日事&#44;今日畢".length == 0 ? new Array() : "今日事&#44;今日畢".split(',')
+        var both = sub.unshift(data.hitokoto, from)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+}
+window.addEventListener('load', subtitleType)
+</script></body></html>
